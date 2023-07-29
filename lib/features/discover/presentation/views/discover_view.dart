@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:marovies/features/discover/presentation/views/widgets/documentary_tap_bar_body.dart';
 import 'package:marovies/features/discover/presentation/views/widgets/movies_tap_bar_body.dart';
 import 'package:marovies/features/discover/presentation/views/widgets/search_box.dart';
+import 'package:marovies/features/discover/presentation/views/widgets/sports_tap_bar_body.dart';
 import 'package:marovies/features/discover/presentation/views/widgets/top_discover_bar.dart';
+import 'package:marovies/features/discover/presentation/views/widgets/tv_series_tap_bar_body.dart';
 
 import '../../../../core/utils/styles.dart';
 
@@ -16,17 +19,17 @@ class DiscoverView extends StatelessWidget {
         child: Scaffold(
           body: Column(
             children: [
-              TopDiscoverBar(
+              const TopDiscoverBar(
                 gradientText: "Find Movies, Tv series, ",
                 text: "and more..",
               ),
-              SizedBox(height: 25),
-              SearchBox(),
-              SizedBox(height: 20),
+              const SizedBox(height: 25),
+              const SearchBox(),
+              const SizedBox(height: 20),
               TabBar(
                 dividerColor: ColorStyles.kPrimaryColor,
                 indicatorColor: Colors.orange.shade900,
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 isScrollable: true,
                 tabs: [
                   Tab(
@@ -46,7 +49,7 @@ class DiscoverView extends StatelessWidget {
                           ),
                         );
                       },
-                      child: Text(
+                      child: const Text(
                         'Movies',
                         style: TextStyle(
                           color: Colors.white,
@@ -71,7 +74,7 @@ class DiscoverView extends StatelessWidget {
                           ),
                         );
                       },
-                      child: Text(
+                      child: const Text(
                         'Tv Series',
                         style: TextStyle(
                           color: Colors.white,
@@ -96,7 +99,7 @@ class DiscoverView extends StatelessWidget {
                           ),
                         );
                       },
-                      child: Text(
+                      child: const Text(
                         'Documentary',
                         style: TextStyle(
                           color: Colors.white,
@@ -121,7 +124,7 @@ class DiscoverView extends StatelessWidget {
                           ),
                         );
                       },
-                      child: Text(
+                      child: const Text(
                         'Sports',
                         style: TextStyle(
                           color: Colors.white,
@@ -131,24 +134,20 @@ class DiscoverView extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 24,),
-              Expanded(
+              const SizedBox(
+                height: 24,
+              ),
+              const Expanded(
                 child: TabBarView(
                   children: [
                     // Replace this with the widget tree for the Movies tab
                     MoviesTapBarBody(),
                     // Replace this with the widget tree for the TV Series tab
-                    Center(
-                      child: Text('TV Series'),
-                    ),
+                    TvSeriesTapBarBody(),
                     // Replace this with the widget tree for the Documentary tab
-                    Center(
-                      child: Text('Documentary'),
-                    ),
+                    DocTapBarBody(),
                     // Replace this with the widget tree for the Sports tab
-                    Center(
-                      child: Text('Sports'),
-                    ),
+                    SportsTapBarBody(),
                   ],
                 ),
               ),

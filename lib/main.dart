@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:marovies/features/discover/presentation/views/discover_view.dart';
 
 import 'core/utils/styles.dart';
-import 'features/home/presentation/views/home_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 void main() {
   SystemChrome.setSystemUIOverlayStyle( // do run not hot  realod
