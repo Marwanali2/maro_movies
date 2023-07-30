@@ -31,5 +31,6 @@ abstract class TextStyles {
 
 abstract class ColorStyles {
   static const kPrimaryColor = Color(0xff15141F);
-  static const kGreyColor =Color.fromRGBO(188, 188, 188, 100);
+  static const kGreyColor = Color.fromRGBO(188, 188, 188, 100);
+  static const kBoldGreyColor = Color(0x0DFFFFFF);
 }
