@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:marovies/features/detail/presentation/views/details_view.dart';
 
 import 'core/utils/styles.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'features/home/presentation/views/home_view.dart';
-import 'features/home/presentation/views/widgets/app.dart';
+import 'features/home/presentation/views/widgets/app_bottom_navigation_bar.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -35,7 +33,7 @@ class MaroviesApp extends StatelessWidget {
         useMaterial3: true,
         textTheme: GoogleFonts.latoTextTheme(ThemeData.dark().textTheme),
       ),
-      home: const App(),
+      home: const AppBottomNavigationBar(),
     );
   }
 }
