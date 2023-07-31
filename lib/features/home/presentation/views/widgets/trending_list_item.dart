@@ -27,7 +27,7 @@ class TrendingListItem extends StatelessWidget {
           child: SizedBox(
             child: Container(
               width: 226,
-              height: 76,
+              height: 80,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(18),
               ),
@@ -36,9 +36,9 @@ class TrendingListItem extends StatelessWidget {
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
                   child: ShaderMask(
-                    shaderCallback: (bounds) => LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
+                      shaderCallback: (bounds) => LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
                       colors: [
                         Colors.black.withOpacity(1),
                         Colors.transparent

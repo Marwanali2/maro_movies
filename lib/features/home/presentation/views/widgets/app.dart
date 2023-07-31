@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:marovies/core/widgets/bottom_navigation_bar.dart';
 import 'package:flutter/services.dart';
 import 'package:marovies/features/discover/presentation/views/discover_view.dart';
 
-import '../../features/home/presentation/views/home_view.dart';
-import '../../features/home/presentation/views/widgets/profile_view.dart';
-import '../utils/styles.dart';
+import '../../../../../core/utils/styles.dart';
+import '../../../../profile/presentation/views/profile_view.dart';
+import '../home_view.dart';
+
+int _selectedIndex = 0;
+const List<Widget> _pages = <Widget>[
+  HomeView(),
+  DiscoverView(),
+  ProfileView(),
+];
 
 class BottomAnimatedNavigationBar extends StatefulWidget {
   BottomAnimatedNavigationBar({Key? key}) : super(key: key);
@@ -16,13 +24,6 @@ class BottomAnimatedNavigationBar extends StatefulWidget {
 
 class _BottomAnimatedNavigationBarState
     extends State<BottomAnimatedNavigationBar> {
-  static int _selectedIndex = 0;
-  static const List<Widget> _pages = <Widget>[
-    HomeView(),
-    DiscoverView(),
-    ProfileView(),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
@@ -56,5 +57,24 @@ class _BottomAnimatedNavigationBarState
     setState(() {
       _selectedIndex = index;
     });
+  }
+}
+
+class App extends StatefulWidget {
+  const App({Key? key}) : super(key: key);
+
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        body: _pages[_selectedIndex],
+        bottomNavigationBar: BottomAnimatedNavigationBar(),
+      ),
+    );
   }
 }

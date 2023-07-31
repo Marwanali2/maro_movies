@@ -5,6 +5,9 @@ import 'package:marovies/features/detail/presentation/views/details_view.dart';
 import 'core/utils/styles.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'features/home/presentation/views/home_view.dart';
+import 'features/home/presentation/views/widgets/app.dart';
+
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
     // do run not hot  realod
@@ -25,15 +28,15 @@ class MaroviesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Maro movies app',
-        theme: ThemeData.dark().copyWith(
-          scaffoldBackgroundColor: ColorStyles.kPrimaryColor,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-          textTheme: GoogleFonts.latoTextTheme(ThemeData.dark().textTheme),
-        ),
-        home: const DetailsView() // const HomeView(),
-        );
+      title: 'Maro movies app',
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: ColorStyles.kPrimaryColor,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.orangeAccent),
+        useMaterial3: true,
+        textTheme: GoogleFonts.latoTextTheme(ThemeData.dark().textTheme),
+      ),
+      home: const App(),
+    );
   }
 }
 

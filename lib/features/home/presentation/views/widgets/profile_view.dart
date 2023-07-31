@@ -7,13 +7,9 @@ class ProfileView extends StatelessWidget {
     return  Container(
       color: const Color(0xffC4DFCB),
       child: Center(
-        child: Text(
-          "Page Number 3",
-          style: TextStyle(
-            color: Colors.green[900],
-            fontSize: 45,
-            fontWeight: FontWeight.w500,
-          ),
+        child: Icon(
+          Icons.person,
+          size: 150,
         ),
       ),
     );;
