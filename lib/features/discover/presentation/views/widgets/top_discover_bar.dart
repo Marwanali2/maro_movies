@@ -17,8 +17,8 @@ class TopDiscoverBar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(
         top: 36,
-        left: 24,
-        right: 68,
+        //left: 10,
+        right: 95,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

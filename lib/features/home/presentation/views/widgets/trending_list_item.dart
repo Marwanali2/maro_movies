@@ -16,7 +16,7 @@ class TrendingListItem extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 12,),
           child: CustomNetworkImage(
             imageUrl:
-            "https://th.bing.com/th/id/OIP.jXuX7WlWVthy71Ymhb0UWQHaIt?pid=ImgDet&rs=1",
+                "https://th.bing.com/th/id/R.625b11cefe5c064d869ddf910fe100b7?rik=Wu8iux1ba622fQ&pid=ImgRaw&r=0",
             aspectRatio: 258 / 336,
           ),
         ),
@@ -34,18 +34,18 @@ class TrendingListItem extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(18),
                 child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
+                  filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
                   child: ShaderMask(
                       shaderCallback: (bounds) => LinearGradient(
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
-                      colors: [
-                        Colors.black.withOpacity(1),
-                        Colors.transparent
-                      ],
-                      stops: const [0.6, 1],
-                    ).createShader(bounds),
-                    blendMode: BlendMode.dstIn,
+                            colors: [
+                              Colors.black.withOpacity(1),
+                              Colors.transparent
+                            ],
+                            stops: const [0.6, 1],
+                          ).createShader(bounds),
+                      blendMode: BlendMode.dstIn,
                     child:const Center(child: Text('Star Wars: The Last Jedi',style: TextStyles.textStyle16,textAlign: TextAlign.center,))
                     ),
                   ),
@@ -69,17 +69,17 @@ class TrendingListItem extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(18),
                 child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
+                  filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
                   child: ShaderMask(
                       shaderCallback: (bounds) => LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Colors.black.withOpacity(1),
-                          Colors.transparent
-                        ],
-                        stops: const [0.6, 1],
-                      ).createShader(bounds),
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Colors.black.withOpacity(1),
+                              Colors.transparent
+                            ],
+                            stops: const [0.6, 1],
+                          ).createShader(bounds),
                       blendMode: BlendMode.dstIn,
                       child:Row(
                         children: [
