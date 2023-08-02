@@ -1,12 +1,20 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marovies/core/utils/api_services.dart';
+import 'package:marovies/features/home/data/models/repo/home_repo_impl.dart';
+import 'package:marovies/features/home/presentation/views/manager/trending_movies_cubit/trending_movies_cubit.dart';
+import 'package:marovies/simple_bloc_observer.dart';
 
+import 'core/utils/service_locator.dart';
 import 'core/utils/styles.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'features/home/presentation/views/widgets/app_bottom_navigation_bar.dart';
 
 void main() {
+  setupServiceLocator();
   SystemChrome.setSystemUIOverlayStyle(
     // do run not hot  realod
     const SystemUiOverlayStyle(
@@ -16,7 +24,7 @@ void main() {
           Brightness.light, // Set the status bar icon color to light
     ),
   );
-
+  Bloc.observer = SimpleBlocObserver();
   runApp(const MaroviesApp());
 }
 
@@ -25,15 +33,28 @@ class MaroviesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Maro movies app',
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: ColorStyles.kPrimaryColor,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.orangeAccent),
-        useMaterial3: true,
-        textTheme: GoogleFonts.latoTextTheme(ThemeData.dark().textTheme),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => TrendingMoviesCubit(
+            HomeRepoImpl(
+              ApiServices(
+                Dio(),
+              ),
+            ),
+          )..fetchTrendingMovies(),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Maro movies app',
+        theme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: ColorStyles.kPrimaryColor,
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.orangeAccent),
+          useMaterial3: true,
+          textTheme: GoogleFonts.latoTextTheme(ThemeData.dark().textTheme),
+        ),
+        home: const AppBottomNavigationBar(),
       ),
-      home: const AppBottomNavigationBar(),
     );
   }
 }
