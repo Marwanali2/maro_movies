@@ -7,8 +7,7 @@ import '../utils/custom_network_image.dart';
 import '../utils/styles.dart';
 
 class ImageStack extends StatelessWidget {
-  const
-  ImageStack({
+  const ImageStack({
     super.key,
   });
 
@@ -47,8 +46,7 @@ class ImageStack extends StatelessWidget {
                     child: Row(
                       children: [
                         Padding(
-                          padding:
-                          const EdgeInsets.fromLTRB(20, 18, 20, 16),
+                          padding: const EdgeInsets.fromLTRB(20, 18, 20, 16),
                           child: SvgPicture.asset(
                             "assets/svg/play_icon.svg",
                             height: 40,
@@ -63,8 +61,7 @@ class ImageStack extends StatelessWidget {
                               top: 11, right: 16, bottom: 14),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment:
-                            CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 "Continue  Watching",

@@ -4,9 +4,14 @@ import 'package:lottie/lottie.dart';
 import 'package:marovies/features/detail/presentation/views/details_view.dart';
 
 class CustomNetworkImage extends StatelessWidget {
-  const CustomNetworkImage({Key? key, required this.imageUrl, required this.aspectRatio,}) : super(key: key);
+  const CustomNetworkImage({
+    Key? key,
+    required this.imageUrl,
+    required this.aspectRatio,
+  }) : super(key: key);
   final String imageUrl;
   final double aspectRatio;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

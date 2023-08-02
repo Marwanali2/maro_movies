@@ -37,4 +37,3 @@ class MaroviesApp extends StatelessWidget {
     );
   }
 }
-

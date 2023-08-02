@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/utils/custom_network_image.dart';
 import '../../../../../core/utils/styles.dart';
+
 class TrendingListItem extends StatelessWidget {
   const TrendingListItem({Key? key}) : super(key: key);
 
@@ -13,7 +14,9 @@ class TrendingListItem extends StatelessWidget {
     return Stack(
       children: [
         const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 12,),
+          padding: EdgeInsets.symmetric(
+            horizontal: 12,
+          ),
           child: CustomNetworkImage(
             imageUrl:
                 "https://th.bing.com/th/id/R.625b11cefe5c064d869ddf910fe100b7?rik=Wu8iux1ba622fQ&pid=ImgRaw&r=0",
@@ -46,14 +49,17 @@ class TrendingListItem extends StatelessWidget {
                             stops: const [0.6, 1],
                           ).createShader(bounds),
                       blendMode: BlendMode.dstIn,
-                    child:const Center(child: Text('Star Wars: The Last Jedi',style: TextStyles.textStyle16,textAlign: TextAlign.center,))
-                    ),
-                  ),
+                      child: const Center(
+                          child: Text(
+                        'Star Wars: The Last Jedi',
+                        style: TextStyles.textStyle16,
+                        textAlign: TextAlign.center,
+                      ))),
                 ),
               ),
             ),
           ),
-
+        ),
         Positioned(
           top: 20,
           bottom: 260,
@@ -81,13 +87,17 @@ class TrendingListItem extends StatelessWidget {
                             stops: const [0.6, 1],
                           ).createShader(bounds),
                       blendMode: BlendMode.dstIn,
-                      child:Row(
+                      child: Row(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(top: 6,bottom: 6,left: 8),
+                            padding: const EdgeInsets.only(
+                                top: 6, bottom: 6, left: 8),
                             child: Column(
                               children: [
-                                const Text("IMDB",style: TextStyles.textStyle8,),
+                                const Text(
+                                  "IMDB",
+                                  style: TextStyles.textStyle8,
+                                ),
                                 Spacer(),
                                 SvgPicture.asset(
                                   "assets/svg/yellow_star.svg",
@@ -99,13 +109,15 @@ class TrendingListItem extends StatelessWidget {
                           ),
                           Spacer(),
                           Padding(
-                            padding: const EdgeInsets.only(top: 18,right: 16,bottom: 9),
-                            child: const Text('7.0',style: TextStyles.textStyle16,),
+                            padding: const EdgeInsets.only(
+                                top: 18, right: 16, bottom: 9),
+                            child: const Text(
+                              '7.0',
+                              style: TextStyles.textStyle16,
+                            ),
                           ),
                         ],
-
-                      )
-                  ),
+                      )),
                 ),
               ),
             ),

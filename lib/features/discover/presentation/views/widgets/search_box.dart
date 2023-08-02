@@ -43,7 +43,7 @@ class SearchBox extends StatelessWidget {
                     color: ColorStyles.kGreyColor,
                   ),
                 ),
-                style: const TextStyle(fontSize:16),
+                style: const TextStyle(fontSize: 16),
               ),
             ),
           ],

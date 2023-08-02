@@ -10,7 +10,7 @@ class ContinueNow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.only(right: 24,left: 24),
+      padding: EdgeInsets.only(right: 24, left: 24),
       child: ImageStack(),
     );
   }

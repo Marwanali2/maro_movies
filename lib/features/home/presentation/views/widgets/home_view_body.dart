@@ -10,12 +10,13 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const Column(
+    return const Column(
       children: [
         // app bar
         Padding(
-          padding:EdgeInsets.only(left: 24,top: 44,right: 127),
-          child: TopBar(gradientText: "Stream",text: "Every Where",gradientWidth: 150),
+          padding: EdgeInsets.only(left: 24, top: 44, right: 127),
+          child: TopBar(
+              gradientText: "Stream", text: "Every Where", gradientWidth: 150),
         ),
         SizedBox(
           height: 28,
@@ -38,7 +39,9 @@ class HomeViewBody extends StatelessWidget {
         ),
         // trend movies list view
         TrendingList(),
-        SizedBox(height: 11,),
+        SizedBox(
+          height: 11,
+        ),
       ],
     );
   }
