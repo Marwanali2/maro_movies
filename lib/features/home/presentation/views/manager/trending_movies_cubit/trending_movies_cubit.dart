@@ -1,10 +1,8 @@
 import 'package:bloc/bloc.dart';
-import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:marovies/features/home/data/models/movie_model.dart';
 import 'package:marovies/features/home/data/models/repo/home_repo.dart';
 
-import '../../../../../../core/errors/failure.dart';
 
 part 'trending_movies_state.dart';
 
