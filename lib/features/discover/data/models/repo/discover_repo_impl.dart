@@ -45,11 +45,11 @@ class DiscoverRepoImpl implements DiscoverRepo {
   Future<Either<Failure, List<TopRatedTvSeriesModel>>>
       fetchTopRatedTvSeries() async {
     try {
-      Map<String, dynamic> trendingTvSeriesMab = await apiServices.getTopRated(
-        endPoint: "tv/series_id/recommendations?language=en-US&page=1",
+      Map<String, dynamic> topRatedTvSeriesMab = await apiServices.getTopRated(
+        endPoint: "tv/top_rated",
       );
       List<TopRatedTvSeriesModel> topRatedTvSeriesList = [];
-      for (var item in trendingTvSeriesMab['results']) {
+      for (var item in topRatedTvSeriesMab['results']) {
         topRatedTvSeriesList.add(
           TopRatedTvSeriesModel.fromJson(item),
         );

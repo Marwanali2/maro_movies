@@ -5,8 +5,6 @@ import 'package:marovies/core/widgets/custom_loading_indicator.dart';
 import 'package:marovies/features/discover/presentation/views/managers/top_rated_movies_cubit/top_rated_movies_cubit.dart';
 import '../../../../../core/utils/custom_network_image.dart';
 import '../../../../../core/utils/styles.dart';
-import 'movie_container.dart';
-
 class MoviesTapBarBody extends StatelessWidget {
   const MoviesTapBarBody({Key? key}) : super(key: key);
 

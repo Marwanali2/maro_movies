@@ -6,6 +6,8 @@ import 'package:get_it/get_it.dart';
 import 'package:marovies/core/utils/api_services.dart';
 import 'package:marovies/features/discover/data/models/repo/discover_repo_impl.dart';
 import 'package:marovies/features/discover/presentation/views/managers/top_rated_movies_cubit/top_rated_movies_cubit.dart';
+import 'package:marovies/features/discover/presentation/views/managers/top_rated_tv_series_cubit/top_rated_tv_series_cubit.dart';
+
 import 'package:marovies/features/home/data/models/repo/home_repo_impl.dart';
 import 'package:marovies/features/home/presentation/views/manager/trending_movies_cubit/trending_movies_cubit.dart';
 import 'package:marovies/simple_bloc_observer.dart';
@@ -47,6 +49,11 @@ class MaroviesApp extends StatelessWidget {
           create: (context) =>
               TopRatedMoviesCubit(getIt.get<DiscoverRepoImpl>())
                 ..fetchTopRatedMovies(),
+        ),
+        BlocProvider(
+          create: (context) => TopRatedTvSeriesCubit(
+            getIt.get<DiscoverRepoImpl>(),
+          )..fetchTopRatedTvSeries(),
         ),
       ],
       child: MaterialApp(
