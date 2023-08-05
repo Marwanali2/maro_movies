@@ -6,13 +6,10 @@ class CustomErrorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return Lottie.asset(
-    //   "assets/lottie_json_animations/12434-no-connection.json",
-    // );
     return SizedBox(
       child: Container(
         width: 250,
-        height: 80,
+        height: 250,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(18),
         ),

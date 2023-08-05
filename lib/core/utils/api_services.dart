@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 String apiKey = "76a6962876fcdd43ecb3e27b5db2e68e";
 
 class ApiServices {
-  final String _baseUrl = "https://api.themoviedb.org/3/trending";
+  final String _baseUrl = "https://api.themoviedb.org/3";
 
   final Dio _dio;
 
@@ -11,6 +11,11 @@ class ApiServices {
 
   Future<Map<String, dynamic>> get({required String endPoint}) async {
     var response = await _dio.get('$_baseUrl/$endPoint/day?api_key=$apiKey');
+    return response.data;
+  }
+
+  Future<Map<String, dynamic>> getTopRated({required String endPoint}) async {
+    var response = await _dio.get('$_baseUrl/$endPoint?api_key=$apiKey');
     return response.data;
   }
 }
