@@ -26,4 +26,72 @@ class TopRatedTvSeriesCubit extends Cubit<TopRatedTvSeriesState> {
       ),
     );
   }
+
+  Future<void> fetchCrimeTvSeries() async {
+    emit(TopRatedTvSeriesLoading());
+    var result = await _discoverRepo.fetchCrimeTvSeries();
+    result.fold(
+      (failure) => emit(
+        TopRatedTvSeriesFailure(
+          failure.errorMessage,
+        ),
+      ),
+      (tvSeries) => emit(
+        TopRatedTvSeriesSuccess(
+          tvSeries,
+        ),
+      ),
+    );
+  }
+
+  Future<void> fetchDocumentaryTvSeries() async {
+    emit(TopRatedTvSeriesLoading());
+    var result = await _discoverRepo.fetchDocumentaryTvSeries();
+    result.fold(
+      (failure) => emit(
+        TopRatedTvSeriesFailure(
+          failure.errorMessage,
+        ),
+      ),
+      (tvSeries) => emit(
+        TopRatedTvSeriesSuccess(
+          tvSeries,
+        ),
+      ),
+    );
+  }
+
+  Future<void> fetchDramaTvSeries() async {
+    emit(TopRatedTvSeriesLoading());
+    var result = await _discoverRepo.fetchDramaTvSeries();
+    result.fold(
+      (failure) => emit(
+        TopRatedTvSeriesFailure(
+          failure.errorMessage,
+        ),
+      ),
+      (tvSeries) => emit(
+        TopRatedTvSeriesSuccess(
+          tvSeries,
+        ),
+      ),
+    );
+  }
+
+  Future<void> fetchKidsTvSeries() async {
+    emit(TopRatedTvSeriesLoading());
+    var result = await _discoverRepo.fetchKidsTvSeries();
+    result.fold(
+      (failure) => emit(
+        TopRatedTvSeriesFailure(
+          failure.errorMessage,
+        ),
+      ),
+      (tvSeries) => emit(
+        TopRatedTvSeriesSuccess(
+          tvSeries,
+        ),
+      ),
+    );
+  }
 }

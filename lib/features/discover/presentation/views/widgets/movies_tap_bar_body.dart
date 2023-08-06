@@ -1,13 +1,27 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marovies/core/widgets/custom_error_widget.dart';
 import 'package:marovies/core/widgets/custom_loading_indicator.dart';
 import 'package:marovies/features/discover/presentation/views/managers/top_rated_movies_cubit/top_rated_movies_cubit.dart';
 import '../../../../../core/utils/custom_network_image.dart';
+import '../../../../../core/utils/service_locator.dart';
 import '../../../../../core/utils/styles.dart';
-class MoviesTapBarBody extends StatelessWidget {
+import '../../../data/models/repo/discover_repo_impl.dart';
+
+class MoviesTapBarBody extends StatefulWidget {
   const MoviesTapBarBody({Key? key}) : super(key: key);
 
+  initState() {
+    return TopRatedMoviesCubit(getIt.get<DiscoverRepoImpl>())
+      ..fetchTopRatedMovies();
+  }
+
+  @override
+  State<MoviesTapBarBody> createState() => _MoviesTapBarBodyState();
+}
+
+class _MoviesTapBarBodyState extends State<MoviesTapBarBody> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TopRatedMoviesCubit, TopRatedMoviesState>(

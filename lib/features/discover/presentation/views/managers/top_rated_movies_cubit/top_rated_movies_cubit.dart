@@ -22,4 +22,43 @@ class TopRatedMoviesCubit extends Cubit<TopRatedMoviesState> {
       ),
     );
   }
+
+  Future<void> fetchComedyMovies() async {
+    emit(TopRatedMoviesLoading());
+    var result = await _discoverRepo.fetchComedyMovies();
+    result.fold(
+      (failure) => emit(TopRatedMoviesFailure(failure.errorMessage)),
+      (movies) => emit(
+        TopRatedMoviesSuccess(
+          movies,
+        ),
+      ),
+    );
+  }
+
+  Future<void> fetchFantasyMovies() async {
+    emit(TopRatedMoviesLoading());
+    var result = await _discoverRepo.fetchFantasyMovies();
+    result.fold(
+      (failure) => emit(TopRatedMoviesFailure(failure.errorMessage)),
+      (movies) => emit(
+        TopRatedMoviesSuccess(
+          movies,
+        ),
+      ),
+    );
+  }
+
+  Future<void> fetchHistoryMovies() async {
+    emit(TopRatedMoviesLoading());
+    var result = await _discoverRepo.fetchHistoryMovies();
+    result.fold(
+      (failure) => emit(TopRatedMoviesFailure(failure.errorMessage)),
+      (movies) => emit(
+        TopRatedMoviesSuccess(
+          movies,
+        ),
+      ),
+    );
+  }
 }

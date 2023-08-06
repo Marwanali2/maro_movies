@@ -46,10 +46,8 @@ class MaroviesApp extends StatelessWidget {
           )..fetchTrendingMovies(),
         ),
         BlocProvider(
-          create: (context) =>
-              TopRatedMoviesCubit(getIt.get<DiscoverRepoImpl>())
-                ..fetchTopRatedMovies(),
-        ),
+            create: (context) =>
+                TopRatedMoviesCubit(getIt.get<DiscoverRepoImpl>())),
         BlocProvider(
           create: (context) => TopRatedTvSeriesCubit(
             getIt.get<DiscoverRepoImpl>(),
