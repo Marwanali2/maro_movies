@@ -18,4 +18,11 @@ class ApiServices {
     var response = await _dio.get('$_baseUrl/$endPoint?api_key=$apiKey');
     return response.data;
   }
+
+  Future<Map<String, dynamic>> getGenres(
+      {required String endPoint, required int genreId}) async {
+    var response = await _dio
+        .get('$_baseUrl/$endPoint?api_key=$apiKey&with_genres=$genreId');
+    return response.data;
+  }
 }

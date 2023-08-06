@@ -3,8 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marovies/core/widgets/custom_error_widget.dart';
 import 'package:marovies/core/widgets/custom_loading_indicator.dart';
 import 'package:marovies/features/discover/presentation/views/managers/top_rated_tv_series_cubit/top_rated_tv_series_cubit.dart';
-import 'package:marovies/features/discover/presentation/views/widgets/tap_bar_body.dart';
-
 import '../../../../../core/utils/custom_network_image.dart';
 import '../../../../../core/utils/styles.dart';
 

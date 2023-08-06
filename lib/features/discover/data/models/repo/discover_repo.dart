@@ -7,9 +7,22 @@ import '../../../../../core/errors/failure.dart';
 abstract class DiscoverRepo {
   Future<Either<Failure, List<TopRatedMoviesModel>>> fetchTopRatedMovies();
 
+  Future<Either<Failure, List<TopRatedMoviesModel>>> fetchActionMovies();
+
+  Future<Either<Failure, List<TopRatedMoviesModel>>> fetchComedyMovies();
+
+  Future<Either<Failure, List<TopRatedMoviesModel>>> fetchFantasyMovies();
+
+  Future<Either<Failure, List<TopRatedMoviesModel>>> fetchHistoryMovies();
+
   Future<Either<Failure, List<TopRatedTvSeriesModel>>> fetchTopRatedTvSeries();
 
-  Future<Either<Failure, List<TopRatedTvSeriesModel>>> fetchDocumentary();
+  Future<Either<Failure, List<TopRatedTvSeriesModel>>> fetchCrimeTvSeries();
 
-  Future<Either<Failure, List<TopRatedTvSeriesModel>>> fetchSports();
+  Future<Either<Failure, List<TopRatedTvSeriesModel>>>
+      fetchDocumentaryTvSeries();
+
+  Future<Either<Failure, List<TopRatedTvSeriesModel>>> fetchDramaTvSeries();
+
+  Future<Either<Failure, List<TopRatedTvSeriesModel>>> fetchKidsTvSeries();
 }

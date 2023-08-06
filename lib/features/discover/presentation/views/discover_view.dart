@@ -15,7 +15,7 @@ class DiscoverView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: DefaultTabController(
-        length: 4,
+        length: 2,
         child: Scaffold(
           body: Column(
             children: [
@@ -29,6 +29,7 @@ class DiscoverView extends StatelessWidget {
               TabBar(
                 dividerColor: ColorStyles.kPrimaryColor,
                 indicatorColor: Colors.orange.shade900,
+                indicatorSize: TabBarIndicatorSize.label,
                 physics: const BouncingScrollPhysics(),
                 isScrollable: true,
                 tabs: [
@@ -82,56 +83,6 @@ class DiscoverView extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Tab(
-                    child: ShaderMask(
-                      blendMode: BlendMode.srcIn,
-                      shaderCallback: (Rect bounds) {
-                        return LinearGradient(
-                          begin: Alignment.centerLeft,
-                          end: Alignment.topRight,
-                          colors: [Colors.orange.shade900, Colors.white],
-                        ).createShader(
-                          const Rect.fromLTWH(
-                            10,
-                            0,
-                            130,
-                            24,
-                          ),
-                        );
-                      },
-                      child: const Text(
-                        'Documentary',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Tab(
-                    child: ShaderMask(
-                      blendMode: BlendMode.srcIn,
-                      shaderCallback: (Rect bounds) {
-                        return LinearGradient(
-                          begin: Alignment.centerLeft,
-                          end: Alignment.topRight,
-                          colors: [Colors.orange.shade900, Colors.white],
-                        ).createShader(
-                          const Rect.fromLTWH(
-                            10,
-                            0,
-                            60,
-                            24,
-                          ),
-                        );
-                      },
-                      child: const Text(
-                        'Sports',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
                 ],
               ),
               const SizedBox(
@@ -140,14 +91,8 @@ class DiscoverView extends StatelessWidget {
               const Expanded(
                 child: TabBarView(
                   children: [
-                    // Replace this with the widget tree for the Movies tab
                     MoviesTapBarBody(),
-                    // Replace this with the widget tree for the TV Series tab
                     TvSeriesTapBarBody(),
-                    // Replace this with the widget tree for the Documentary tab
-                    DocTapBarBody(),
-                    // Replace this with the widget tree for the Sports tab
-                    SportsTapBarBody(),
                   ],
                 ),
               ),
