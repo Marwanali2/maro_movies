@@ -51,7 +51,7 @@ class MaroviesApp extends StatelessWidget {
         BlocProvider(
           create: (context) => TopRatedTvSeriesCubit(
             getIt.get<DiscoverRepoImpl>(),
-          )..fetchTopRatedTvSeries(),
+          ),
         ),
       ],
       child: MaterialApp(

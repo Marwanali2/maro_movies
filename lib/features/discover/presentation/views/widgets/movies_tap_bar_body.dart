@@ -12,16 +12,17 @@ import '../../../data/models/repo/discover_repo_impl.dart';
 class MoviesTapBarBody extends StatefulWidget {
   const MoviesTapBarBody({Key? key}) : super(key: key);
 
-  initState() {
-    return TopRatedMoviesCubit(getIt.get<DiscoverRepoImpl>())
-      ..fetchTopRatedMovies();
-  }
-
   @override
   State<MoviesTapBarBody> createState() => _MoviesTapBarBodyState();
 }
 
 class _MoviesTapBarBodyState extends State<MoviesTapBarBody> {
+  @override
+  initState() {
+    super.initState();
+    BlocProvider.of<TopRatedMoviesCubit>(context).fetchTopRatedMovies();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TopRatedMoviesCubit, TopRatedMoviesState>(
@@ -46,7 +47,7 @@ class _MoviesTapBarBodyState extends State<MoviesTapBarBody> {
                             width: 170,
                             child: CustomNetworkImage(
                               imageUrl:
-                                  "https://image.tmdb.org/t/p/w500${state.topRatedMovies[index].posterPath}",
+                              "https://image.tmdb.org/t/p/w500${state.topRatedMovies[index].posterPath}",
                               aspectRatio: 125 / 150,
                             ),
                           ),
@@ -60,7 +61,7 @@ class _MoviesTapBarBodyState extends State<MoviesTapBarBody> {
                                   width: 130,
                                   child: Column(
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         '${state.topRatedMovies[index].title}',
@@ -91,7 +92,7 @@ class _MoviesTapBarBodyState extends State<MoviesTapBarBody> {
                           height: 200,
                           child: CustomNetworkImage(
                             imageUrl:
-                                "https://image.tmdb.org/t/p/w500${state.topRatedMovies[19 - index].posterPath}",
+                            "https://image.tmdb.org/t/p/w500${state.topRatedMovies[19 - index].posterPath}",
                             aspectRatio: 125 / 150,
                           ),
                         ),
