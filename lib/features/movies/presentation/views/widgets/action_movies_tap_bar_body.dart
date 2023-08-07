@@ -3,31 +3,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marovies/core/widgets/custom_error_widget.dart';
 import 'package:marovies/core/widgets/custom_loading_indicator.dart';
-import 'package:marovies/features/discover/presentation/views/managers/top_rated_movies_cubit/top_rated_movies_cubit.dart';
 import '../../../../../core/utils/custom_network_image.dart';
-import '../../../../../core/utils/service_locator.dart';
 import '../../../../../core/utils/styles.dart';
-import '../../../data/models/repo/discover_repo_impl.dart';
+import '../managers/top_rated_movies_cubit/top_rated_movies_cubit.dart';
 
-class MoviesTapBarBody extends StatefulWidget {
-  const MoviesTapBarBody({Key? key}) : super(key: key);
+class ActionMoviesTapBarBody extends StatefulWidget {
+  const ActionMoviesTapBarBody({Key? key}) : super(key: key);
 
   @override
-  State<MoviesTapBarBody> createState() => _MoviesTapBarBodyState();
+  State<ActionMoviesTapBarBody> createState() => _ActionMoviesTapBarBodyState();
 }
 
-class _MoviesTapBarBodyState extends State<MoviesTapBarBody> {
+class _ActionMoviesTapBarBodyState extends State<ActionMoviesTapBarBody> {
   @override
   initState() {
     super.initState();
-    BlocProvider.of<TopRatedMoviesCubit>(context).fetchTopRatedMovies();
+    BlocProvider.of<MoviesCubit>(context).fetchActionMovies();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TopRatedMoviesCubit, TopRatedMoviesState>(
+    return BlocBuilder<MoviesCubit, MoviesState>(
       builder: (context, state) {
-        if (state is TopRatedMoviesSuccess) {
+        if (state is MoviesSuccess) {
           return Padding(
             padding: const EdgeInsets.only(left: 24),
             child: ListView.builder(
@@ -47,7 +45,7 @@ class _MoviesTapBarBodyState extends State<MoviesTapBarBody> {
                             width: 170,
                             child: CustomNetworkImage(
                               imageUrl:
-                              "https://image.tmdb.org/t/p/w500${state.topRatedMovies[index].posterPath}",
+                                  "https://image.tmdb.org/t/p/w500${state.topRatedMovies[index].posterPath}",
                               aspectRatio: 125 / 150,
                             ),
                           ),
@@ -61,7 +59,7 @@ class _MoviesTapBarBodyState extends State<MoviesTapBarBody> {
                                   width: 130,
                                   child: Column(
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         '${state.topRatedMovies[index].title}',
@@ -92,7 +90,7 @@ class _MoviesTapBarBodyState extends State<MoviesTapBarBody> {
                           height: 200,
                           child: CustomNetworkImage(
                             imageUrl:
-                            "https://image.tmdb.org/t/p/w500${state.topRatedMovies[19 - index].posterPath}",
+                                "https://image.tmdb.org/t/p/w500${state.topRatedMovies[19 - index].posterPath}",
                             aspectRatio: 125 / 150,
                           ),
                         ),
@@ -131,7 +129,7 @@ class _MoviesTapBarBodyState extends State<MoviesTapBarBody> {
               },
             ),
           );
-        } else if (state is TopRatedMoviesFailure) {
+        } else if (state is MoviesFailure) {
           return CustomErrorWidget();
         } else {
           return CustomLoadingIndicator();

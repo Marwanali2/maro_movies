@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:marovies/features/discover/presentation/views/widgets/search_box.dart';
-import 'package:marovies/features/discover/presentation/views/widgets/top_discover_bar.dart';
+import 'package:marovies/features/movies/presentation/views/widgets/search_box.dart';
+import 'package:marovies/features/movies/presentation/views/widgets/top_discover_bar.dart';
 
 class DiscoverViewBody extends StatelessWidget {
   const DiscoverViewBody({Key? key}) : super(key: key);

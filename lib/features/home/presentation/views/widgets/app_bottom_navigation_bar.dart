@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:marovies/features/discover/presentation/views/discover_view.dart';
 
 import '../../../../../core/utils/styles.dart';
+import '../../../../movies/presentation/views/movies_view.dart';
 import '../../../../profile/presentation/views/profile_view.dart';
 import '../home_view.dart';
 
@@ -29,7 +29,7 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
           },
           children: const <Widget>[
             HomeView(),
-            DiscoverView(),
+            MoviesView(),
             ProfileView(),
           ],
         ),
@@ -49,9 +49,9 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.play_circle,
+                Icons.movie,
               ),
-              label: "Discover",
+              label: "Movies",
             ),
             BottomNavigationBarItem(
               icon: Icon(

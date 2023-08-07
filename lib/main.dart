@@ -1,13 +1,6 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
-import 'package:marovies/core/utils/api_services.dart';
-import 'package:marovies/features/discover/data/models/repo/discover_repo_impl.dart';
-import 'package:marovies/features/discover/presentation/views/managers/top_rated_movies_cubit/top_rated_movies_cubit.dart';
-import 'package:marovies/features/discover/presentation/views/managers/top_rated_tv_series_cubit/top_rated_tv_series_cubit.dart';
-
 import 'package:marovies/features/home/data/models/repo/home_repo_impl.dart';
 import 'package:marovies/features/home/presentation/views/manager/trending_movies_cubit/trending_movies_cubit.dart';
 import 'package:marovies/simple_bloc_observer.dart';
@@ -17,6 +10,8 @@ import 'core/utils/styles.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'features/home/presentation/views/widgets/app_bottom_navigation_bar.dart';
+import 'features/movies/data/models/repo/movies_repo_impl.dart';
+import 'features/movies/presentation/views/managers/top_rated_movies_cubit/top_rated_movies_cubit.dart';
 
 void main() {
   setupServiceLocator();
@@ -46,12 +41,11 @@ class MaroviesApp extends StatelessWidget {
           )..fetchTrendingMovies(),
         ),
         BlocProvider(
-            create: (context) =>
-                TopRatedMoviesCubit(getIt.get<DiscoverRepoImpl>())),
+            create: (context) => MoviesCubit(getIt.get<MoviesRepoImpl>())),
         BlocProvider(
           create: (context) => TopRatedTvSeriesCubit(
             getIt.get<DiscoverRepoImpl>(),
-          ),
+          )..fetchCrimeTvSeries(),
         ),
       ],
       child: MaterialApp(
